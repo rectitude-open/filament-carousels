@@ -27,6 +27,11 @@ use RectitudeOpen\FilamentCarousels\Database\Factories\CarouselFactory;
  * @property-read int|null $categories_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Awcodes\Curator\Models\Media> $pictures
  * @property-read int|null $pictures_count
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|static ordered()
+ * @method static \Illuminate\Database\Eloquent\Builder|static draft()
+ * @method static \Illuminate\Database\Eloquent\Builder|static published()
+ * @method static \Illuminate\Database\Eloquent\Builder|static withSlug(string $slug)
  */
 class Carousel extends Model
 {

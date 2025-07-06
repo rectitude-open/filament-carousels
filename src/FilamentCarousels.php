@@ -15,4 +15,24 @@ class FilamentCarousels
     {
         return config('filament-carousels.carousel.model', Carousel::class);
     }
+
+    public function getPublishedById(int $id): ?Carousel
+    {
+        $model = $this->getModel();
+
+        $carousel = $model::published()->find($id);
+        assert($carousel instanceof Carousel || $carousel === null);
+
+        return $carousel;
+    }
+
+    public function getPublishedBySlug(string $slug): ?Carousel
+    {
+        $model = $this->getModel();
+
+        $carousel = $model::published()->withSlug($slug)->first();
+        assert($carousel instanceof Carousel || $carousel === null);
+
+        return $carousel;
+    }
 }
