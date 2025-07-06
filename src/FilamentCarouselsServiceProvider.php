@@ -1,6 +1,8 @@
 <?php
 
-namespace VendorName\Skeleton;
+declare(strict_types=1);
+
+namespace RectitudeOpen\FilamentCarousels;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
@@ -10,17 +12,17 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
+use RectitudeOpen\FilamentCarousels\Commands\FilamentCarouselsCommand;
+use RectitudeOpen\FilamentCarousels\Testing\TestsFilamentCarousels;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
-use VendorName\Skeleton\Testing\TestsSkeleton;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class FilamentCarouselsServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'skeleton';
+    public static string $name = 'filament-carousels';
 
-    public static string $viewNamespace = 'skeleton';
+    public static string $viewNamespace = 'filament-carousels';
 
     public function configurePackage(Package $package): void
     {
@@ -30,13 +32,12 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package->name(static::$name)
-            ->hasCommands($this->getCommands())
+            // ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
                     ->publishMigrations()
-                    ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub(':vendor_slug/:package_slug');
+                    ->askToRunMigrations();
             });
 
         $configFileName = $package->shortName();
@@ -63,36 +64,36 @@ class SkeletonServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         // Asset Registration
-        FilamentAsset::register(
-            $this->getAssets(),
-            $this->getAssetPackageName()
-        );
+        // FilamentAsset::register(
+        //     $this->getAssets(),
+        //     $this->getAssetPackageName()
+        // );
 
-        FilamentAsset::registerScriptData(
-            $this->getScriptData(),
-            $this->getAssetPackageName()
-        );
+        // FilamentAsset::registerScriptData(
+        //     $this->getScriptData(),
+        //     $this->getAssetPackageName()
+        // );
 
         // Icon Registration
-        FilamentIcon::register($this->getIcons());
+        // FilamentIcon::register($this->getIcons());
 
         // Handle Stubs
-        if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
-                $this->publishes([
-                    $file->getRealPath() => base_path("stubs/skeleton/{$file->getFilename()}"),
-                ], 'skeleton-stubs');
-            }
-        }
+        // if (app()->runningInConsole()) {
+        //     foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
+        //         $this->publishes([
+        //             $file->getRealPath() => base_path("stubs/filament-carousels/{$file->getFilename()}"),
+        //         ], 'filament-carousels-stubs');
+        //     }
+        // }
 
         // Testing
-        Testable::mixin(new TestsSkeleton);
+        // Testable::mixin(new TestsFilamentCarousels);
     }
 
-    protected function getAssetPackageName(): ?string
-    {
-        return ':vendor_slug/:package_slug';
-    }
+    // protected function getAssetPackageName(): ?string
+    // {
+    //     return 'rectitude-open/filament-carousels';
+    // }
 
     /**
      * @return array<Asset>
@@ -100,9 +101,9 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            // AlpineComponent::make('skeleton', __DIR__ . '/../resources/dist/components/skeleton.js'),
-            Css::make('skeleton-styles', __DIR__ . '/../resources/dist/skeleton.css'),
-            Js::make('skeleton-scripts', __DIR__ . '/../resources/dist/skeleton.js'),
+            // AlpineComponent::make('filament-carousels', __DIR__ . '/../resources/dist/components/filament-carousels.js'),
+            // Css::make('filament-carousels-styles', __DIR__ . '/../resources/dist/filament-carousels.css'),
+            // Js::make('filament-carousels-scripts', __DIR__ . '/../resources/dist/filament-carousels.js'),
         ];
     }
 
@@ -112,7 +113,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            SkeletonCommand::class,
+            FilamentCarouselsCommand::class,
         ];
     }
 
@@ -146,7 +147,8 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_skeleton_table',
+            'create_carousels_table',
+            'create_carousel_categories_table',
         ];
     }
 }

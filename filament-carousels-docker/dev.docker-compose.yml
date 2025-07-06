@@ -1,0 +1,31 @@
+services:
+  filament-carousels-nginx:
+    container_name: filament-carousels-nginx
+    image: ghcr.io/rectitude-open/dev-environments/php/8.3:latest
+    environment:
+      - PROJECT_ROOT=${PROJECT_ROOT}
+      - NGINX_ROOT=${PROJECT_ROOT}/public
+    working_dir: ${PROJECT_ROOT}
+    volumes:
+      - ../:/home/wwwroot/filament-carousels
+      - /home/php/extension:/root/.vscode-server/extensions
+      - /home/php/extension-insiders:/root/.vscode-server-insiders/extensions
+    ports:
+      - 31381:80
+      - 31386:31386
+    stdin_open: true
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2000M
+    networks:
+      filament-carousels-net:
+        ipv4_address: 172.16.138.11
+
+networks:
+  filament-carousels-net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.138.0/24

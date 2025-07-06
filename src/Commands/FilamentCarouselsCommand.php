@@ -1,12 +1,14 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+declare(strict_types=1);
+
+namespace RectitudeOpen\FilamentCarousels\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FilamentCarouselsCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'filament-carousels';
 
     public $description = 'My command';
 

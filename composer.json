@@ -1,28 +1,30 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "rectitude-open/filament-carousels",
+    "description": "This is my package filament-carousels",
     "keywords": [
         "filament",
         "filament plugin"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/rectitude-open/filament-carousels",
     "support": {
-        "issues": "https://github.com/:vendor_slug/:package_slug/issues",
-        "source": "https://github.com/:vendor_slug/:package_slug"
+        "issues": "https://github.com/rectitude-open/filament-carousels/issues",
+        "source": "https://github.com/rectitude-open/filament-carousels"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Rectitude Open",
+            "email": "open@rectitude.dev",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
+        "awcodes/filament-curator": "^3.7",
+        "codewithdennis/filament-select-tree": "^3.1",
+        "cviebrock/eloquent-sluggable": "^10.0 || ^11.0 || ^12.0",
         "filament/filament": "^3.0",
-        "filament/forms": "^3.0",
-        "filament/tables": "^3.0",
+        "solution-forest/filament-tree": "^2.1",
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
@@ -36,13 +38,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "RectitudeOpen\\FilamentCarousels\\": "src/",
+            "RectitudeOpen\\FilamentCarousels\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "RectitudeOpen\\FilamentCarousels\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -62,10 +64,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "RectitudeOpen\\FilamentCarousels\\FilamentCarouselsServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "FilamentCarousels": "RectitudeOpen\\FilamentCarousels\\Facades\\FilamentCarousels"
             }
         }
     },
