@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use RalphJSmit\Laravel\SEO\Support\HasSEO;
 use RectitudeOpen\FilamentCarousels\Database\Factories\CarouselFactory;
 
 /**
@@ -32,7 +31,6 @@ use RectitudeOpen\FilamentCarousels\Database\Factories\CarouselFactory;
 class Carousel extends Model
 {
     use HasFactory;
-    use HasSEO;
     use Sluggable;
     use SoftDeletes;
 
