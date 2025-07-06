@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.0](https://github.com/rectitude-open/filament-carousels/compare/v1.1.0...v1.2.0) (2025-07-06)
+
+
+### Features
+
+* add helper functions for retrieving carousels and their media ([fb24dee](https://github.com/rectitude-open/filament-carousels/commit/fb24deea748baf0bc3468f5c6c919ee7599bf73b))
+* add methods to retrieve published carousels by ID and slug ([e622bed](https://github.com/rectitude-open/filament-carousels/commit/e622bed616e471678a0dc1eaaea53ec656df253f))
+* rename methods for retrieving published carousels to improve clarity ([e19d87e](https://github.com/rectitude-open/filament-carousels/commit/e19d87e045bca359d336515861ee28d9c490c0b8))
+
 ## [1.1.0](https://github.com/rectitude-open/filament-carousels/compare/v1.0.0...v1.1.0) (2025-07-06)
 
 
