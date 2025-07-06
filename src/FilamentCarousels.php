@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace RectitudeOpen\FilamentCarousels;
 
+use Illuminate\Database\Eloquent\Collection;
 use RectitudeOpen\FilamentCarousels\Models\Carousel;
 
 class FilamentCarousels
@@ -16,7 +17,7 @@ class FilamentCarousels
         return config('filament-carousels.carousel.model', Carousel::class);
     }
 
-    public function getPublishedById(int $id): ?Carousel
+    public function getPublishedCarouselById(int $id): ?Carousel
     {
         $model = $this->getModel();
 
@@ -26,7 +27,7 @@ class FilamentCarousels
         return $carousel;
     }
 
-    public function getPublishedBySlug(string $slug): ?Carousel
+    public function getPublishedCarouselBySlug(string $slug): ?Carousel
     {
         $model = $this->getModel();
 
@@ -34,5 +35,20 @@ class FilamentCarousels
         assert($carousel instanceof Carousel || $carousel === null);
 
         return $carousel;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection<int, Carousel>
+     */
+    public function getPublishedCarouselsByCategory(int $categoryId): Collection
+    {
+        $model = $this->getModel();
+
+        $carousels = $model::published()->whereHas('categories', function ($query) use ($categoryId) {
+            $query->where('id', $categoryId);
+        })->get();
+
+        /** @var \Illuminate\Database\Eloquent\Collection<int, Carousel> $carousels */
+        return $carousels;
     }
 }
