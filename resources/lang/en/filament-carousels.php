@@ -9,7 +9,7 @@ return [
             'group' => 'Content',
         ],
     ],
-    'photo' => [
+    'carousel' => [
         'nav' => [
             'label' => 'Carousels',
             'group' => '',
@@ -31,7 +31,7 @@ return [
             'select_categories' => 'Select Categories',
         ],
     ],
-    'photo_category' => [
+    'carousel_category' => [
         'nav' => [
             'label' => 'Carousel Categories',
             'group' => '',
