@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/rectitude-open/filament-carousels/compare/v1.2.0...v1.2.1) (2025-07-18)
+
+
+### Bug Fixes
+
+* specify table name in category query for clarity and accuracy ([a5cfdfd](https://github.com/rectitude-open/filament-carousels/commit/a5cfdfd831980ec61e987d3cb5c277a55f9f3177))
+* use config for media model in pictures relationship for flexibility ([533d31a](https://github.com/rectitude-open/filament-carousels/commit/533d31a9581041e83860b8e28895e8234e14d6bc))
+
 ## [1.2.0](https://github.com/rectitude-open/filament-carousels/compare/v1.1.0...v1.2.0) (2025-07-06)
 
 
