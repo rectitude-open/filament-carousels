@@ -45,8 +45,8 @@ class FilamentCarousels
         $model = $this->getModel();
 
         $carousels = $model::published()->whereHas('categories', function ($query) use ($categoryId) {
-            $query->where('id', $categoryId);
-        })->get();
+            $query->where('carousel_categories.id', $categoryId);
+        })->ordered()->get();
 
         /** @var \Illuminate\Database\Eloquent\Collection<int, Carousel> $carousels */
         return $carousels;
