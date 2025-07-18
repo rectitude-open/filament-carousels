@@ -74,7 +74,7 @@ class Carousel extends Model
     public function pictures(): BelongsToMany
     {
         return $this
-            ->belongsToMany(Media::class, 'pivot_carousel_media', 'carousel_id', 'media_id')
+            ->belongsToMany(config('curator.model', Media::class), 'pivot_carousel_media', 'carousel_id', 'media_id')
             ->withPivot('order')
             ->orderBy('order');
     }
